@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+.span{
+
+  padding: 5px;
+  margin-left: 30%;
+  align-content: center;
+}
+.span1{
+  padding: 5px;
+  margin-left:33%;
+}
+.companylogo{
+  float:left;
+
+  padding:30px;
+}
+.companyinfo{
+  float:right;
+  margin-right:200px;
+}
+.tablehead{
+  padding:3px;
+}
+.tableheadcom{
+  padding:10px;
+  border-spacing: 15px;
+}
+/*.Table{
+text-align:center;
+  width:100%;
+
+border: 1px solid black;
+padding-top: 10px;
+
+}
+table, td,th,tr{
+  border-collapse:separate;
+  border: 1px soild black;
+  padding: 10px;
+}*/
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+.data{
+  text-align:center;
+}
+.components{
+  width:200px;
+
+}
+.tax1{
+  width:50px;
+
+}
+#quantity{
+  width:50px;
+}
+#fk{
+  color:blue;
+  margin: 20%;
+  font-size: 20px;
+}
+#end{
+  float:right;
+  margin-top: 3%;
+  margin-right: 40px;
+}
+</style>
+
+<body>
+  <div class="name">
+
+<span class="span">The Coefficient pipe company& PVT.limited <span><br>
+  <span class="span1">cristan palace road london-3456123 </span>
+
+  </div>
+
+<div class="w3-container w3-red">
+  <div class="companylogo">
+  <p>
+  To:<br>
+  <input type="text">
+  </p>
+
+  <p>
+    TIN N0:
+  </p>
+
+  </div>
+  <div class="companyinfo">
+
+  <p>INVOICE</p>
+  <p>Bill No:</p>
+  <p>Date:</p>
+
+  </div>
+
+
+</div>
+<table class="Table" id="Table">
+
+
+<tr>
+<th >s.no</th>
+<th >companents</th>
+<th >quantity</th>
+
+<th >price</th>
+<th >total price </th>
+</tr>
+<tr>
+
+  <td >
+    <p >
+    1.
+    </p>
+  </td>
+  <td >
+    <input type="search" required >
+  </td>
+  <td  >
+     <input type="number" required >
+  </td>
+
+<td >
+    <input type="number" onkeypress="myFunction(event)"  required>
+  </td>
+  <td >
+
+
+    </td>
+
+
+</tr>
+</table>
+<div>
+
+</div>
+<div>
+<button id="end" onclick="end()">
+bill
+</button>
+</div>
+<p id="fk"> </p>
+</body>
+
+
+
+
+<script>
+i=0;
+var temp=[];
+var j=1;
+var quantity=0;
+var tprice=0;
+var r1=[];
+var send=[];
+var data={
+  sno:null,
+  components:null,
+  quantity:null,
+  price:null,
+  totalprice:null,
+
+}
+var sno=1;
+ function myDeleteFunction() {
+  document.getElementById("Table").deleteRow(j);
+  }
+ function myCreateFunction(  ) {
+  var table = document.getElementById("Table");
+  var row = table.insertRow(j);
+  var cell1 = row.insertCell(0);
+  var cell2 = row.insertCell(1);
+  var cell3= row.insertCell(2);
+  var cell4= row.insertCell(3);
+  var cell5= row.insertCell(4);
+  cell1.innerHTML = sno;
+  cell2.innerHTML = r1[0].value;
+  cell3.innerHTML=r1[1].value;
+  cell4.innerHTML=r1[2].value;
+  cell5.innerHTML= r1[1].value *r1[2].value;
+  tprice=tprice+ parseInt(cell5.innerHTML);
+  //mp=parseInt(r1);
+data={
+  sno:sno,
+  components:r1[0].value,
+  quantity:r1[1].value,
+  price:r1[2].value,
+  totalprice:r1[1].value*r1[2].value,
+
+}
+console.log(j);
+send[j-0]=data;
+console.log(send);
+}
+function inputrow(){
+var table=document.getElementById("Table");
+var row=table.insertRow(j);
+console.log(j);
+var cell1=row.insertCell(0);
+ var cell2 = row.insertCell(1);
+  var cell3= row.insertCell(2);
+  var cell4= row.insertCell(3);
+  var cell5= row.insertCell(4);
+  cell1.innerHTML=sno;
+    cell2.innerHTML = '<input type="text"  >';
+  cell3.innerHTML= '<input type="number"  >';
+  cell4.innerHTML= '<input type="number"  onkeypress="myFunction(event)">';
+  cell5.innerHTML= '<p> </p>';
+
+
+ }
+ function end(){
+  document.getElementById("Table").deleteRow(j);
+  //ert(quantity+" and" +tprice);
+
+//myCreateFunction(  );
+  //lert(j);
+
+var table=document.getElementById("Table");
+var row=table.insertRow(j);
+var cell00=row.insertCell(0);
+var cell01=row.insertCell(1);
+var cell2 = row.insertCell(2);
+var cell1=row.insertCell(3);
+
+
+  var cell3 = row.insertCell(4);
+  cell00.innerHTML= "   ";
+   cell01.innerHTML= "TOTAL ";
+   cell1.innerHTML= "   ";
+  cell2.innerHTML=quantity;
+  cell3.innerHTML=tprice;
+  fk();
+var element=document.getElementById("end");
+element.parentNode.removeChild(element);
+window.print();
+ }
+
+ var a = ['','one ','two ','three ','four ', 'five ','six ','seven ','eight ','nine ','ten ','eleven ','twelve ','thirteen ','fourteen ','fifteen ','sixteen ','seventeen ','eighteen ','nineteen '];
+ var b = ['', '', 'twenty','thirty','forty','fifty', 'sixty','seventy','eighty','ninety'];
+
+ function inWords (num) {
+     if ((num = num.toString()).length > 9) return 'overflow';
+     n = ('000000000' + num).substr(-9).match(/^(\d{2})(\d{2})(\d{2})(\d{1})(\d{2})$/);
+     if (!n) return; var str = '';
+     str += (n[1] != 0) ? (a[Number(n[1])] || b[n[1][0]] + ' ' + a[n[1][1]]) + 'Crore ' : '';
+     str += (n[2] != 0) ? (a[Number(n[2])] || b[n[2][0]] + ' ' + a[n[2][1]]) + 'Lakh ' : '';
+     str += (n[3] != 0) ? (a[Number(n[3])] || b[n[3][0]] + ' ' + a[n[3][1]]) + 'Thousand ' : '';
+     str += (n[4] != 0) ? (a[Number(n[4])] || b[n[4][0]] + ' ' + a[n[4][1]]) + 'Hundred ' : '';
+     str += (n[5] != 0) ? ((str != '') ? 'and ' : '') + (a[Number(n[5])] || b[n[5][0]] + ' ' + a[n[5][1]]) + 'only ' : '';
+     return str;
+ }
+
+  function fk() {
+     document.getElementById('fk').innerHTML ="Amount In <br> "+ "Words:" + inWords(tprice);
+ };
+
+
+
+function myFunction(){
+console.log(event.charCode);
+if(event.charCode===13){
+
+for(i;i<3;i++ )
+{
+ r1[i] = document.getElementsByTagName("INPUT")[i+1];
+ //alert(r1[i].value);
+ console.log(r1[i].value);
+ if(i==2)
+quantity=quantity +	parseInt(r1[1].value);
+//total=total+r1[1].value;
+
+
+}
+
+i=0;
+
+ myDeleteFunction();
+ myCreateFunction();
+ sno++;
+ j++;
+ inputrow();
+}
+}
+
+
+
+
+
+
+
+</script>
+</html>
